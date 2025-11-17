@@ -1,1 +1,400 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!--#les meta tags de base pour un site qui claque-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wassim Amrane - Data Analyst en formation, passionné par l'analyse de données, le Machine Learning et la création de solutions exploitables.">
+    <meta name="author" content="Wassim Amrane">
+    <title>Wassim Amrane | Data Analyst</title>
+    <!--#fichier css perso pour le style-->
+    <link rel="stylesheet" href="styles.css">
+    <!--#google fonts pour une typo clean, inter c'est la base-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--#navbar fixe en haut qui suit le scroll comme dans tous les bons portfolios-->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <!--#logo avec mes initiales parce que c'est stylé-->
+            <a href="#" class="nav-logo">WA</a>
+            <!--#bouton hamburger pour mobile, les 3 spans deviennent une croix au clic-->
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!--#menu de navigation avec les ancres vers chaque section-->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link"><span>01.</span> À propos</a></li>
+                <li><a href="#experience" class="nav-link"><span>02.</span> Expérience</a></li>
+                <li><a href="#projects" class="nav-link"><span>03.</span> Projets</a></li>
+                <li><a href="#skills" class="nav-link"><span>04.</span> Compétences</a></li>
+                <li><a href="#contact" class="nav-link"><span>05.</span> Contact</a></li>
+                <li><a href="./resume.pdf" class="nav-button" target="_blank">CV</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--#email fixé sur le coté droit en mode vertical, inspiration brittany chiang-->
+    <div class="email-side">
+        <a href="mailto:endle.amrane@gmail.com">endle.amrane@gmail.com</a>
+    </div>
+
+    <!--#icones sociales fixées à gauche, github et linkedin pour faire pro-->
+    <div class="social-side">
+        <ul>
+            <!--#lien github avec svg inline pour garder le controle sur le style-->
+            <li><a href="https://github.com/EndWriter" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a></li>
+            <!--#linkedin parce que c'est quand meme la pour trouver une alternance-->
+            <li><a href="https://www.linkedin.com/in/wassim-amrane" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a></li>
+        </ul>
+    </div>
+
+    <!--#section hero c'est la premiere impression, faut que ca claque direct-->
+    <section id="hero" class="hero">
+        <div class="container">
+            <!--#petit texte d'intro en vert pour attirer l'oeil-->
+            <p class="hero-intro fade-up">Bonjour, je suis</p>
+            <!--#gros titre avec mon nom histoire qu'on sache direct qui je suis-->
+            <h1 class="hero-title fade-up">Wassim AMRANE.</h1>
+            <!--#phrase d'accroche qui resume ce que je fais-->
+            <h2 class="hero-subtitle fade-up">Je transforme les données en insights.</h2>
+            <!--#description complete avec les mots cles pour le seo et pour etre clair-->
+            <p class="hero-description fade-up">
+                Je suis <strong>Data Analyst en formation</strong>, passionné par l'analyse de données, 
+                le Machine Learning et la création de solutions exploitables. Actuellement en fin de formation 
+                Développeur IA & Data Science, je suis à la recherche d'une <strong>alternance à partir de 
+                janvier/février 2026</strong> afin d'approfondir mes compétences en data analytics, 
+                intelligence artificielle et déploiement de modèles.
+            </p>
+            <!--#cta vers la section contact, fade-up pour l'animation au chargement-->
+            <a href="#contact" class="hero-button fade-up">Me contacter</a>
+        </div>
+    </section>
+
+    <!--#section about c'est la que je me presente vraiment-->
+    <section id="about" class="about section">
+        <div class="container">
+            <!--#titre de section avec numero style terminal-->
+            <h2 class="section-title">
+                <span class="section-number">01.</span>
+                À propos de moi
+            </h2>
+            <div class="about-content">
+                <!--#texte de presentation a gauche-->
+                <div class="about-text">
+                    <p>
+                        Je m'appelle Wassim Amrane et je me spécialise dans l'<strong>analyse de données</strong> 
+                        et l'<strong>intelligence artificielle</strong>. J'aime transformer les données en 
+                        informations utiles et créer des modèles fiables qui aident à la prise de décision.
+                    </p>
+                    <p>
+                        Au cours de ma formation, j'ai travaillé sur des projets mêlant Machine Learning, 
+                        analyse de données, visualisation et déploiement de modèles via Docker. J'ai également 
+                        une expérience dans le développement web, ce qui me permet de comprendre toute la 
+                        chaîne technique d'un projet.
+                    </p>
+                    <p>
+                        Sérieux, adaptable et orienté solution, je suis motivé pour rejoindre une équipe data 
+                        afin de contribuer à la mise en place de pipelines de données, analyses avancées ou 
+                        modèles prédictifs.
+                    </p>
+                    <p>Voici quelques technologies avec lesquelles j'ai récemment travaillé :</p>
+                    <!--#liste des technos principales en grid pour faire clean-->
+                    <ul class="skills-list">
+                        <li>Python</li>
+                        <li>Pandas</li>
+                        <li>SQL</li>
+                        <li>Power BI</li>
+                        <li>Scikit-learn</li>
+                        <li>Docker</li>
+                        <li>Git</li>
+                        <li>React</li>
+                    </ul>
+                </div>
+                <!--#placeholder pour la photo de profil a droite-->
+                <div class="about-image">
+                    <!--#wrapper avec effet hover et bordure verte en decale-->
+                    <div class="image-wrapper">
+                        <!--#svg temporaire en attendant une vraie photo-->
+                        <div class="image-placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--#section experience avec le systeme de tabs pour afficher les differents jobs-->
+    <section id="experience" class="experience section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">02.</span>
+                Mon parcours
+            </h2>
+            <div class="experience-content">
+                <!--#boutons des tabs sur la gauche pour switcher entre les experiences-->
+                <div class="tabs">
+                    <!--#chaque bouton correspond a un panel, le data-tab fait le lien-->
+                    <button class="tab-button active" data-tab="tab1">Pôle Formation UIMM</button>
+                    <button class="tab-button" data-tab="tab2">Boulanger</button>
+                    <button class="tab-button" data-tab="tab3">Century21</button>
+                    <button class="tab-button" data-tab="tab4">HomeDream</button>
+                </div>
+                <!--#contenu des tabs qui s'affiche selon le bouton clique-->
+                <div class="tab-content">
+                    <!--#premier panel visible par defaut avec la class active-->
+                    <div id="tab1" class="tab-panel active">
+                        <h3>Stage Développeur IA & Data Science <span class="company">@ Pôle Formation UIMM</span></h3>
+                        <p class="job-date">Juin 2025 - Août 2025</p>
+                        <!--#liste des taches et realisations, fleches vertes ajoutees en css-->
+                        <ul>
+                            <li>Développement et optimisation de modèles de Machine Learning</li>
+                            <li>Préparation et analyse de jeux de données (Python, Pandas, Scikit-learn)</li>
+                            <li>Déploiement d'un modèle via Docker et initiation à Kubernetes</li>
+                        </ul>
+                    </div>
+                    <!--#deuxieme experience, cache par defaut-->
+                    <div id="tab2" class="tab-panel">
+                        <h3>Conseiller de vente <span class="company">@ Boulanger</span></h3>
+                        <p class="job-date">Juin 2024 - Août 2024 • La Garde (83)</p>
+                        <ul>
+                            <li>Vente de produits électroniques et conseil client</li>
+                            <li>Gestion des stocks et mise en rayon</li>
+                        </ul>
+                    </div>
+                    <!--#troisieme experience-->
+                    <div id="tab3" class="tab-panel">
+                        <h3>Conseiller Immobilier <span class="company">@ Century21</span></h3>
+                        <p class="job-date">Juin 2023 - Mars 2024 • La Garde (83)</p>
+                        <ul>
+                            <li>Prospection et gestion d'un portefeuille client</li>
+                            <li>Création de supports de communication et analyse de marché</li>
+                        </ul>
+                    </div>
+                    <!--#quatrieme et derniere experience pro-->
+                    <div id="tab4" class="tab-panel">
+                        <h3>Conseiller Immobilier (Apprentissage) <span class="company">@ HomeDream Immobilier</span></h3>
+                        <p class="job-date">Juin 2022 - Mars 2023 • Six-Fours-les-Plages</p>
+                        <ul>
+                            <li>Développement commercial et analyse des besoins clients</li>
+                            <li>Veille concurrentielle et élaboration de stratégies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="education">
+                <h3 class="education-title">Formation</h3>
+                <div class="education-grid">
+                    <!--#formation principale en cours-->
+                    <div class="education-item">
+                        <h4>Développeur IA & Data Science</h4>
+                        <p class="education-degree">RNCP Niveau 6 — Bac+3</p>
+                        <p class="education-school">Pôle formation UIMM Champagne-Ardenne</p>
+                        <p class="education-date">2025</p>
+                    </div>
+                    <div class="education-item">
+                        <h4>Développeur Web & Web Mobile</h4>
+                        <p class="education-degree">RNCP Niveau 5 — Bac+2</p>
+                        <p class="education-school">AFPA (Distanciel)</p>
+                        <p class="education-date">2021 - 2022</p>
+                    </div>
+                    <div class="education-item">
+                        <h4>Licence 1 Informatique</h4>
+                        <p class="education-school">Université de Toulon</p>
+                        <p class="education-date">2020 - 2021</p>
+                    </div>
+                    <div class="education-item">
+                        <h4>Bac Scientifique</h4>
+                        <p class="education-school">Lycée Maurice Janetti</p>
+                        <p class="education-date">2018 - 2019</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--#section projets avec les cartes des realisations-->
+    <section id="projects" class="projects section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">03.</span>
+                Mes projets
+            </h2>
+            <!--#grid qui affiche les projets en cartes avec auto-fill-->
+            <div class="projects-grid">
+                <!--#premiere carte projet en placeholder pour l'instant-->
+                <div class="project-card">
+                    <div class="project-content">
+                        <!--#petit tag en haut de la carte-->
+                        <p class="project-overline">Projet à venir</p>
+                        <h3 class="project-title">Projet 1 (à compléter)</h3>
+                        <div class="project-description">
+                            <p>Espace réservé pour un futur projet d'analyse de données ou de Machine Learning.</p>
+                        </div>
+                        <!--#liste des technos utilisees dans le projet-->
+                        <ul class="project-tech">
+                            <li>Python</li>
+                            <li>Pandas</li>
+                            <li>Scikit-learn</li>
+                        </ul>
+                        <!--#liens vers github et demo, disabled pour l'instant-->
+                        <div class="project-links">
+                            <a href="#" class="project-link disabled" aria-label="GitHub Link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--#deuxieme carte projet aussi en placeholder-->
+                <div class="project-card">
+                    <div class="project-content">
+                        <p class="project-overline">Projet à venir</p>
+                        <h3 class="project-title">Projet 2 (à compléter)</h3>
+                        <div class="project-description">
+                            <p>Espace réservé pour un futur projet de développement web ou d'application data.</p>
+                        </div>
+                        <ul class="project-tech">
+                            <li>React</li>
+                            <li>JavaScript</li>
+                            <li>API</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="#" class="project-link disabled" aria-label="GitHub Link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--#section competences avec les categories de technos-->
+    <section id="skills" class="skills section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">04.</span>
+                Compétences
+            </h2>
+            <!--#grid des categories de competences-->
+            <div class="skills-content">
+                <!--#chaque categorie est une carte avec sa liste de technos-->
+                <div class="skill-category">
+                    <h3>Analyse & Traitement de données</h3>
+                    <ul class="tech-list">
+                        <li>Python</li>
+                        <li>Pandas</li>
+                        <li>Power BI</li>
+                        <li>Excel</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Machine Learning</h3>
+                    <ul class="tech-list">
+                        <li>Scikit-learn</li>
+                        <li>Modélisation prédictive</li>
+                        <li>Optimisation de modèles</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Bases de données</h3>
+                    <ul class="tech-list">
+                        <li>SQL</li>
+                        <li>NoSQL</li>
+                        <li>CSV/Excel</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Déploiement & DevOps</h3>
+                    <ul class="tech-list">
+                        <li>Git</li>
+                        <li>Docker</li>
+                        <li>Kubernetes</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Développement Web</h3>
+                    <ul class="tech-list">
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>HTML/CSS</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Outils & IDE</h3>
+                    <ul class="tech-list">
+                        <li>VSCode</li>
+                        <li>Jupyter</li>
+                        <li>Docker Desktop</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--#petite section interets en bas pour humaniser un peu le portfolio-->
+            <div class="interests">
+                <h3 class="interests-title">Centres d'intérêt</h3>
+                <!--#tags avec emojis parce que c'est sympa-->
+                <div class="interests-list">
+                    <span class="interest-tag">🏐 Volley-ball</span>
+                    <span class="interest-tag">🏁 Rallye</span>
+                    <span class="interest-tag">🎮 Jeux vidéo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--#derniere section avant le footer pour me contacter-->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-number">05.</span>
+                Contactez-moi
+            </h2>
+            <div class="contact-content">
+                <p class="contact-text">
+                    Je suis actuellement à la recherche d'une alternance pour approfondir mes compétences 
+                    en data analytics et intelligence artificielle. N'hésitez pas à me contacter si vous 
+                    souhaitez discuter d'opportunités ou simplement échanger !
+                </p>
+                <!--#bloc avec toutes mes infos de contact-->
+                <div class="contact-info">
+                    <p><strong>Email :</strong> <a href="mailto:endle.amrane@gmail.com">endle.amrane@gmail.com</a></p>
+                    <p><strong>Téléphone :</strong> <a href="tel:+33771630118">07.71.63.01.18</a></p>
+                    <p><strong>Localisation :</strong> Charleville-Mézières (Mobilité nationale)</p>
+                </div>
+                <!--#gros bouton cta pour l'envoi d'email-->
+                <a href="mailto:endle.amrane@gmail.com" class="contact-button">
+                    Dites bonjour
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!--#footer minimaliste avec credits-->
+    <footer class="footer">
+        <div class="container">
+            <p>Conçu et développé par Wassim Amrane</p>
+            <!--#credit au template original parce que c'est la moindre des choses-->
+            <p>Inspiré par <a href="https://brittanychiang.com/" target="_blank" rel="noopener noreferrer">Brittany Chiang</a></p>
+        </div>
+    </footer>
+
+    <!--#fichier js pour toutes les interactions-->
+    <script src="script.js"></script>
+</body>
+</html>
