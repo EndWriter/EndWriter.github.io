@@ -227,79 +227,202 @@
         </div>
     </section>
 
-    <!--#section projets avec les cartes des realisations-->
+    <!--#section projets avec le systeme accordion pour les details-->
     <section id="projects" class="projects section">
         <div class="container">
             <h2 class="section-title">
                 <span class="section-number">03.</span>
                 Mes projets
             </h2>
-            <!--#grid qui affiche les projets en cartes avec auto-fill-->
-            <div class="projects-grid">
+            <p class="projects-intro">Cliquez sur un projet pour voir les détails</p>
+            
+            <!--#liste des projets en accordion-->
+            <div class="projects-accordion">
+                
                 <!--#projet certificationfinder, le systeme de recommandation ia qui envoie du lourd-->
-                <div class="project-card">
-                    <div class="project-content">
-                        <p class="project-overline">Machine Learning</p>
-                        <h3 class="project-title">CertificationFinder</h3>
-                        <div class="project-description">
-                            <p>Système de recommandation intelligent orientant les étudiants vers des certifications RNCP adaptées. Pipeline ETL complet, modèle Random Forest optimisé atteignant 70% de précision sur 5000 profils.</p>
+                <div class="project-accordion-item">
+                    <button class="project-accordion-header" aria-expanded="false">
+                        <div class="project-header-content">
+                            <span class="project-overline">Machine Learning</span>
+                            <h3 class="project-title">CertificationFinder</h3>
+                            <p class="project-summary">Système de recommandation IA orientant les étudiants vers des certifications RNCP adaptées</p>
+                            <ul class="project-tech">
+                                <li>Python</li>
+                                <li>Scikit-learn</li>
+                                <li>Pandas</li>
+                                <li>PostgreSQL</li>
+                                <li>BeautifulSoup</li>
+                            </ul>
                         </div>
-                        <ul class="project-tech">
-                            <li>Python</li>
-                            <li>Scikit-learn</li>
-                            <li>Pandas</li>
-                            <li>PostgreSQL</li>
-                            <li>BeautifulSoup</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/EndWriter" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub Link">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                            </a>
+                        <span class="accordion-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </span>
+                    </button>
+                    <div class="project-accordion-content">
+                        <div class="project-details">
+                            <!--#description detaillee du projet-->
+                            <div class="project-description-full">
+                                <h4>Contexte</h4>
+                                <p>Développé durant mon stage au Pôle Formation UIMM, ce système de recommandation intelligent vise à orienter automatiquement les étudiants vers des certifications RNCP adaptées à leur profil, leurs compétences et leurs objectifs professionnels.</p>
+                                
+                                <h4>Pipeline ETL</h4>
+                                <ul>
+                                    <li><strong>Extract :</strong> Collecte de 5000 profils étudiants anonymisés (RGPD) depuis PostgreSQL + scraping de 8000+ certifications depuis France Travail</li>
+                                    <li><strong>Transform :</strong> Nettoyage, encodage One-Hot, standardisation, feature engineering (score proximité géographique, score cohérence parcours)</li>
+                                    <li><strong>Load :</strong> Structure en étoile PostgreSQL optimisée pour les requêtes analytiques</li>
+                                </ul>
+                                
+                                <h4>Modélisation</h4>
+                                <p>Comparaison de 3 algorithmes (KNN, Naive Bayes, Random Forest). Le Random Forest a été retenu avec <strong>77% d'accuracy</strong> après optimisation et régularisation pour corriger le surapprentissage (gap réduit de 40pts à 4pts).</p>
+                                
+                                <h4>Résultats clés</h4>
+                                <ul>
+                                    <li>Feature importance : Taux d'adéquation compétences (28%), Niveau d'études (22%), Score cohérence parcours (15%)</li>
+                                    <li>Réduction du surapprentissage via régularisation et réduction de la profondeur des arbres</li>
+                                </ul>
+                            </div>
+                            
+                            <!--#galerie d'images du projet-->
+                            <div class="project-gallery">
+                                <div class="gallery-item">
+                                    <img src="images/comparaison_modeles.jpeg" alt="Comparaison des performances KNN vs Naive Bayes vs Random Forest" loading="lazy">
+                                    <p class="gallery-caption">Comparaison des modèles — Random Forest surpasse les autres sur toutes les métriques</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="images/courbes_apprentissage.jpeg" alt="Courbes d'apprentissage avant et après régularisation" loading="lazy">
+                                    <p class="gallery-caption">Correction du surapprentissage — Gap réduit de 40pts à 4pts après régularisation</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="images/feature_importance.jpeg" alt="Importance des features dans le modèle Random Forest" loading="lazy">
+                                    <p class="gallery-caption">Feature Importance — Les compétences et le niveau d'études sont les facteurs clés</p>
+                                </div>
+                            </div>
+                            
+                            <!--#liens du projet-->
+                            <div class="project-links-full">
+                                <a href="https://github.com/EndWriter" target="_blank" rel="noopener noreferrer" class="project-link-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    Voir sur GitHub
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!--#projet agile, la plateforme web de gestion des formations qui a bien occupé le stage-->
-                <div class="project-card">
-                    <div class="project-content">
-                        <p class="project-overline">Développement Full-Stack</p>
-                        <h3 class="project-title">AGILe</h3>
-                        <div class="project-description">
-                            <p>Plateforme web de gestion des formations remplaçant des fichiers Excel dispersés. Architecture REST avec 50+ endpoints, gestion hiérarchique formations/modules/compétences et génération automatique de PDF.</p>
+                <!--#projet agile, la plateforme web de gestion des formations-->
+                <div class="project-accordion-item">
+                    <button class="project-accordion-header" aria-expanded="false">
+                        <div class="project-header-content">
+                            <span class="project-overline">Développement Full-Stack</span>
+                            <h3 class="project-title">AGILe</h3>
+                            <p class="project-summary">Plateforme web de gestion des formations remplaçant des fichiers Excel dispersés</p>
+                            <ul class="project-tech">
+                                <li>Laravel</li>
+                                <li>Next.js</li>
+                                <li>React</li>
+                                <li>PostgreSQL</li>
+                                <li>Docker</li>
+                            </ul>
                         </div>
-                        <ul class="project-tech">
-                            <li>Laravel</li>
-                            <li>Next.js</li>
-                            <li>React</li>
-                            <li>PostgreSQL</li>
-                            <li>Docker</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/EndWriter" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub Link">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                            </a>
+                        <span class="accordion-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </span>
+                    </button>
+                    <div class="project-accordion-content">
+                        <div class="project-details">
+                            <div class="project-description-full">
+                                <h4>Contexte</h4>
+                                <p>Le Pôle Formation UIMM gère 6500 étudiants/an, 70+ formations initiales et 700 formations continues. Avant AGILe, tout était géré via des fichiers Excel dispersés, créant des incohérences et une perte de temps considérable.</p>
+                                
+                                <h4>Architecture technique</h4>
+                                <ul>
+                                    <li><strong>Backend :</strong> Laravel 11.9 (PHP 8.2), Eloquent ORM, API REST avec 50+ endpoints</li>
+                                    <li><strong>Frontend :</strong> Next.js 14 (React 18), Redux Toolkit pour la gestion d'état, Tailwind CSS</li>
+                                    <li><strong>Base de données :</strong> PostgreSQL avec relations hiérarchiques (formations → modules → blocs → compétences)</li>
+                                    <li><strong>Sécurité :</strong> Laravel Sanctum (authentification token-based), gestion des rôles</li>
+                                    <li><strong>DevOps :</strong> Docker avec docker-compose, tests PHPUnit</li>
+                                </ul>
+                                
+                                <h4>Fonctionnalités développées</h4>
+                                <ul>
+                                    <li>Gestion hiérarchique formations/modules/blocs/compétences avec navigation bidirectionnelle</li>
+                                    <li>Génération automatique de PDF avec DomPDF</li>
+                                    <li>Interface responsive (grille desktop, liste mobile)</li>
+                                    <li>Optimisation des requêtes avec eager loading pour éviter le problème N+1</li>
+                                </ul>
+                                
+                                <h4>Méthodologie</h4>
+                                <p>Projet géré en Agile Scrum avec sprints de 2 semaines, Daily Scrum quotidiens, Trello (Kanban) et GitLab (Git Flow avec merge requests obligatoires).</p>
+                            </div>
+                            
+                            <div class="project-gallery">
+                                <div class="gallery-item">
+                                    <img src="images/agile_liste.jpeg" alt="Interface AGILe - Liste des formations" loading="lazy">
+                                    <p class="gallery-caption">Interface principale — Liste des 1177 produits de formation avec filtres avancés</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="images/trello_board.jpeg" alt="Tableau Trello du projet AGILe" loading="lazy">
+                                    <p class="gallery-caption">Gestion Agile — Board Trello montrant l'avancement sur 6 semaines de sprint</p>
+                                </div>
+                            </div>
+                            
+                            <div class="project-links-full">
+                                <a href="https://github.com/EndWriter" target="_blank" rel="noopener noreferrer" class="project-link-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    Voir sur GitHub
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!--#projet msp regression lineaire, le classique du ml qui pose les bases-->
-                <div class="project-card">
-                    <div class="project-content">
-                        <p class="project-overline">Machine Learning</p>
-                        <h3 class="project-title">MSP - Régression Linéaire</h3>
-                        <div class="project-description">
-                            <p>Projet de Machine Learning explorant la régression linéaire avec analyse exploratoire des données, visualisation des résultats et évaluation des performances du modèle.</p>
+                <div class="project-accordion-item">
+                    <button class="project-accordion-header" aria-expanded="false">
+                        <div class="project-header-content">
+                            <span class="project-overline">Machine Learning</span>
+                            <h3 class="project-title">MSP - Régression Linéaire</h3>
+                            <p class="project-summary">Projet ML explorant la régression linéaire avec analyse exploratoire et visualisation</p>
+                            <ul class="project-tech">
+                                <li>Python</li>
+                                <li>Jupyter</li>
+                                <li>Scikit-learn</li>
+                                <li>Matplotlib</li>
+                            </ul>
                         </div>
-                        <ul class="project-tech">
-                            <li>Python</li>
-                            <li>Jupyter</li>
-                            <li>Scikit-learn</li>
-                            <li>Matplotlib</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/EndWriter/ml_linear_regression" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub Link">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                            </a>
+                        <span class="accordion-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </span>
+                    </button>
+                    <div class="project-accordion-content">
+                        <div class="project-details">
+                            <div class="project-description-full">
+                                <h4>Contexte</h4>
+                                <p>Mise en situation professionnelle (MSP) réalisée dans le cadre de ma formation. Ce projet explore les fondamentaux du Machine Learning à travers l'implémentation et l'analyse d'un modèle de régression linéaire.</p>
+                                
+                                <h4>Objectifs pédagogiques</h4>
+                                <ul>
+                                    <li>Comprendre les mécanismes de la régression linéaire simple et multiple</li>
+                                    <li>Maîtriser le processus complet : exploration, préparation, modélisation, évaluation</li>
+                                    <li>Interpréter les coefficients et les métriques de performance (R², MSE, MAE)</li>
+                                    <li>Visualiser les résultats et communiquer les insights</li>
+                                </ul>
+                                
+                                <h4>Contenu du notebook</h4>
+                                <ul>
+                                    <li><strong>EDA :</strong> Analyse exploratoire avec statistiques descriptives et visualisations</li>
+                                    <li><strong>Preprocessing :</strong> Gestion des valeurs manquantes, normalisation, split train/test</li>
+                                    <li><strong>Modélisation :</strong> Régression linéaire avec Scikit-learn</li>
+                                    <li><strong>Évaluation :</strong> Métriques de performance et analyse des résidus</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="project-links-full">
+                                <a href="https://github.com/EndWriter/ml_linear_regression" target="_blank" rel="noopener noreferrer" class="project-link-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    Voir sur GitHub
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

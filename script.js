@@ -322,3 +322,106 @@ function validateEmail(email) {
 console.log('%c👋 Bonjour!', 'color: #64ffda; font-size: 20px; font-weight: bold;');
 console.log('%cJe vois que vous inspectez le code... Vous êtes curieux, c\'est bien! 🔍', 'color: #8892b0; font-size: 14px;');
 console.log('%cSi vous souhaitez discuter de data, de code ou d\'opportunités, contactez-moi! 🚀', 'color: #64ffda; font-size: 14px;');
+
+/* ============================================
+   ACCORDION PROJECTS FUNCTIONALITY
+   a ajouter a la fin de ton script.js existant
+   ============================================ */
+
+//#gestion de l'accordion pour les projets
+//#on recupere tous les headers cliquables
+const accordionHeaders = document.querySelectorAll('.project-accordion-header');
+
+accordionHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+        //#on recupere l'item parent de l'accordion
+        const accordionItem = header.parentElement;
+        const isActive = accordionItem.classList.contains('active');
+        
+        //#on ferme tous les autres accordions ouverts pour garder un seul ouvert a la fois
+        //#commente ces 3 lignes si tu veux pouvoir ouvrir plusieurs accordions en meme temps
+        document.querySelectorAll('.project-accordion-item.active').forEach(item => {
+            item.classList.remove('active');
+            item.querySelector('.project-accordion-header').setAttribute('aria-expanded', 'false');
+        });
+        
+        //#si l'accordion clique n'etait pas deja ouvert, on l'ouvre
+        if (!isActive) {
+            accordionItem.classList.add('active');
+            header.setAttribute('aria-expanded', 'true');
+            
+            //#petit scroll smooth pour que le projet soit bien visible
+            setTimeout(() => {
+                accordionItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        }
+    });
+});
+
+//#gestion du zoom sur les images de la galerie
+//#cree un modal pour afficher les images en grand quand on clique dessus
+const galleryImages = document.querySelectorAll('.gallery-item img');
+
+galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+        //#on cree le modal dynamiquement
+        const modal = document.createElement('div');
+        modal.className = 'image-modal active';
+        modal.innerHTML = `
+            <button class="image-modal-close" aria-label="Fermer">&times;</button>
+            <img src="${img.src}" alt="${img.alt}">
+        `;
+        
+        document.body.appendChild(modal);
+        document.body.style.overflow = 'hidden';
+        
+        //#fermeture du modal au clic sur le bouton ou en dehors de l'image
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal || e.target.classList.contains('image-modal-close')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                setTimeout(() => modal.remove(), 300);
+            }
+        });
+        
+        //#fermeture avec la touche echap parce que c'est plus pratique
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                setTimeout(() => modal.remove(), 300);
+                document.removeEventListener('keydown', handleEscape);
+            }
+        };
+        document.addEventListener('keydown', handleEscape);
+    });
+});
+
+//#animation d'entree des accordions au scroll
+//#utilise intersection observer pour un effet sympa quand on arrive sur la section
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const accordionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            //#delai progressif pour un effet cascade
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }, index * 100);
+            accordionObserver.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+//#on applique le style initial et on observe chaque accordion item
+document.querySelectorAll('.project-accordion-item').forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(20px)';
+    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    accordionObserver.observe(item);
+});
