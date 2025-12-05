@@ -26,19 +26,6 @@
     --nav-scroll-height: 70px;
 }
 
-/*#theme clair avec des couleurs inversees pour un mode jour agreable*/
-:root.light-theme {
-    --navy: #f8f9fa;
-    --light-navy: #ffffff;
-    --lightest-navy: #e9ecef;
-    --slate: #495057;
-    --light-slate: #343a40;
-    --lightest-slate: #212529;
-    --white: #0a192f;
-    --green: #00a67e;
-    --green-tint: rgba(0, 166, 126, 0.1);
-}
-
 /*#reset de base pour eviter les surprises entre navigateurs*/
 * {
     margin: 0;
@@ -166,56 +153,6 @@ ul {
     z-index: 2;
 }
 
-/*#bouton toggle theme avec transition smooth entre soleil et lune*/
-.theme-toggle {
-    background: none;
-    border: none;
-    color: var(--lightest-slate);
-    cursor: pointer;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: var(--transition);
-    position: relative;
-    width: 36px;
-    height: 36px;
-}
-
-.theme-toggle:hover {
-    background-color: var(--green-tint);
-    color: var(--green);
-}
-
-/*#icones soleil et lune positionnees de maniere absolue*/
-.theme-toggle svg {
-    position: absolute;
-    transition: var(--transition);
-}
-
-/*#par defaut on affiche la lune en theme sombre*/
-.theme-toggle .sun-icon {
-    opacity: 0;
-    transform: rotate(90deg) scale(0);
-}
-
-.theme-toggle .moon-icon {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-}
-
-/*#en theme clair on inverse les icones*/
-:root.light-theme .theme-toggle .sun-icon {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-}
-
-:root.light-theme .theme-toggle .moon-icon {
-    opacity: 0;
-    transform: rotate(-90deg) scale(0);
-}
-
 /*#menu horizontal avec gap entre les items*/
 .nav-menu {
     display: flex;
@@ -280,12 +217,6 @@ ul {
 
 /*#sur mobile le menu devient un panneau lateral qui slide depuis la droite*/
 @media (max-width: 768px) {
-    /*#le bouton de theme reste visible et accessible sur mobile*/
-    .theme-toggle {
-        margin-right: 10px;
-        z-index: 2;
-    }
-    
     /*#afficher le bouton hamburger*/
     .nav-toggle {
         display: flex;

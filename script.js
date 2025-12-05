@@ -1,30 +1,4 @@
 //#========================================
-//#gestion du theme clair/sombre avec sauvegarde dans le localStorage
-//#========================================
-
-//#on recup le bouton toggle et on charge la preference utilisateur
-const themeToggle = document.getElementById('themeToggle');
-const root = document.documentElement;
-
-//#on check si l'utilisateur a deja une preference sauvegardee
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light') {
-    root.classList.add('light-theme');
-}
-
-//#au clic on bascule entre les deux themes
-themeToggle.addEventListener('click', () => {
-    root.classList.toggle('light-theme');
-    
-    //#on sauvegarde la preference pour la prochaine visite
-    if (root.classList.contains('light-theme')) {
-        localStorage.setItem('theme', 'light');
-    } else {
-        localStorage.setItem('theme', 'dark');
-    }
-});
-
-//#========================================
 //#effet de scroll sur la navbar qui retrecit quand on descend
 //#========================================
 
