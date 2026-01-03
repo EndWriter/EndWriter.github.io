@@ -24,6 +24,38 @@
     /*#hauteurs de la navbar selon l'etat*/
     --nav-height: 100px;
     --nav-scroll-height: 70px;
+    
+    /*#couleurs de base pour le theme (peut etre surchargees au dark mode)*/
+    --bg-primary: #0a192f;
+    --bg-secondary: #112240;
+    --bg-tertiary: #233554;
+    --text-primary: #ccd6f6;
+    --text-secondary: #8892b0;
+    --text-tertiary: #a8b2d1;
+    --border-color: #233554;
+    --accent: #64ffda;
+}
+
+/*#theme clair (light mode) avec variables personnalisees*/
+:root.light-mode {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f7fa;
+    --bg-tertiary: #eef2f7;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-tertiary: #64748b;
+    --border-color: #e2e8f0;
+    --accent: #3b82f6;
+    
+    /*#override des anciennes variables pour compatibilite*/
+    --navy: #ffffff;
+    --light-navy: #f5f7fa;
+    --lightest-navy: #eef2f7;
+    --slate: #475569;
+    --light-slate: #64748b;
+    --lightest-slate: #0f172a;
+    --green: #3b82f6;
+    --green-tint: rgba(59, 130, 246, 0.1);
 }
 
 /*#reset de base pour eviter les surprises entre navigateurs*/
@@ -127,10 +159,20 @@ ul {
     transition: var(--transition);
 }
 
+/*#en light mode on change la couleur de fond*/
+:root.light-mode .navbar {
+    background-color: rgba(255, 255, 255, 0.90);
+}
+
 /*#quand on scroll la navbar retrecit et prend une ombre*/
 .navbar.scrolled {
     height: var(--nav-scroll-height);
     box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+}
+
+/*#en light mode la shadow change aussi*/
+:root.light-mode .navbar.scrolled {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
 }
 
 /*#container de la nav avec flex pour aligner logo a gauche et menu a droite*/
@@ -196,7 +238,50 @@ ul {
     background-color: var(--green-tint);
 }
 
-/*#bouton hamburger pour mobile cache par defaut*/
+/*#bouton de toggle du theme clair/sombre*/
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    transition: var(--transition);
+}
+
+/*#icone du soleil visible en theme sombre*/
+.theme-toggle .sun-icon {
+    display: block;
+    position: absolute;
+    opacity: 1;
+    transition: var(--transition);
+}
+
+/*#icone de la lune cachee en theme sombre*/
+.theme-toggle .moon-icon {
+    display: block;
+    position: absolute;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+/*#quand on passe en light mode on cache le soleil et on affiche la lune*/
+:root.light-mode .theme-toggle .sun-icon {
+    opacity: 0;
+}
+
+:root.light-mode .theme-toggle .moon-icon {
+    opacity: 1;
+}
+
+/*#hover du bouton toggle*/
+.theme-toggle:hover {
+    filter: brightness(1.2);
+}
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -702,6 +787,38 @@ ul {
 
 .education-item:hover {
     transform: translateY(-5px);
+}
+
+/*#badge de certification pour la formation actuelle*/
+.certification-badge {
+    display: inline-block;
+    background-color: var(--green);
+    color: var(--navy);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/*#en light mode le badge s'adapte*/
+:root.light-mode .certification-badge {
+    background-color: var(--accent);
+    color: white;
+}
+
+/*#style special pour la carte de formation actuelle*/
+.education-current {
+    border: 2px solid var(--green);
+    background-color: var(--green-tint);
+}
+
+:root.light-mode .education-current {
+    border: 2px solid var(--accent);
+    background-color: rgba(59, 130, 246, 0.05);
 }
 
 .education-item h4 {

@@ -1,4 +1,43 @@
 //#========================================
+//#gestion du toggle du theme clair/sombre
+//#========================================
+
+//#on recupere le bouton de toggle et le root element
+const themeToggle = document.getElementById('themeToggle');
+const htmlElement = document.documentElement;
+
+//#fonction pour changer de theme
+function toggleTheme() {
+    const isLightMode = htmlElement.classList.contains('light-mode');
+    
+    if (isLightMode) {
+        //#passer au dark mode
+        htmlElement.classList.remove('light-mode');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        //#passer au light mode
+        htmlElement.classList.add('light-mode');
+        localStorage.setItem('theme', 'light');
+    }
+}
+
+//#charger le theme sauvegarde au demarrage
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    if (savedTheme === 'light') {
+        htmlElement.classList.add('light-mode');
+    }
+}
+
+//#initialiser le theme au chargement de la page
+initTheme();
+
+//#ajouter l'event listener au bouton de toggle
+if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+}
+
+//#========================================
 //#effet de scroll sur la navbar qui retrecit quand on descend
 //#========================================
 
