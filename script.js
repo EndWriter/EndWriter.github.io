@@ -23,7 +23,7 @@ function toggleTheme() {
 
 //#charger le theme sauvegarde au demarrage
 function initTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const savedTheme = localStorage.getItem('theme') || 'light';
     if (savedTheme === 'light') {
         htmlElement.classList.add('light-mode');
     }
