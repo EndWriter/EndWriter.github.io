@@ -377,15 +377,18 @@ accordionHeaders.forEach(header => {
         const accordionItem = header.parentElement;
         const isActive = accordionItem.classList.contains('active');
         
-        //#on ferme tous les autres accordions ouverts pour garder un seul ouvert a la fois
-        //#commente ces 3 lignes si tu veux pouvoir ouvrir plusieurs accordions en meme temps
-        document.querySelectorAll('.project-accordion-item.active').forEach(item => {
-            item.classList.remove('active');
-            item.querySelector('.project-accordion-header').setAttribute('aria-expanded', 'false');
-        });
+        //#on peut maintenant ouvrir plusieurs accordions en meme temps, chacun indépendamment
+        //#plus de fermeture des autres, c'est bien plus cool pour explorer tous les projets a la fois
+        // document.querySelectorAll('.project-accordion-item.active').forEach(item => {
+        //     item.classList.remove('active');
+        //     item.querySelector('.project-accordion-header').setAttribute('aria-expanded', 'false');
+        // });
         
-        //#si l'accordion clique n'etait pas deja ouvert, on l'ouvre
-        if (!isActive) {
+        //#toggle du projet courant - on l'ouvre ou on le ferme selon son etat
+        if (isActive) {
+            accordionItem.classList.remove('active');
+            header.setAttribute('aria-expanded', 'false');
+        } else {
             accordionItem.classList.add('active');
             header.setAttribute('aria-expanded', 'true');
             
